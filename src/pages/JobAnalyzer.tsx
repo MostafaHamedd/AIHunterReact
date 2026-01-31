@@ -164,11 +164,16 @@ export default function JobAnalyzer() {
           </div>
         )}
 
-        {currentResume && !currentCoverLetter && (
-          <div className="card bg-blue-50 border-blue-200">
-            <p className="text-blue-800">
-              💡 Tip: Upload a cover letter in the <strong>Documents</strong> page to optimize it for this job too.
+        {currentResume && (
+          <div className="card bg-green-50 border-green-200">
+            <p className="text-green-800">
+              ✅ Using resume: <strong>{currentResume.name}</strong> from Documents page
             </p>
+            {currentCoverLetter && (
+              <p className="text-green-700 mt-1 text-sm">
+                ✅ Using cover letter: <strong>{currentCoverLetter.name}</strong> from Documents page
+              </p>
+            )}
           </div>
         )}
 
