@@ -11,7 +11,8 @@ import { applicationService } from '@/services/applicationService'
 export default function JobAnalyzer() {
   const { 
     currentJobDescription, 
-    currentResume, 
+    currentResume,
+    currentCoverLetter,
     setATSScore, 
     setOptimizationChanges,
     setCurrentResume,
@@ -158,7 +159,15 @@ export default function JobAnalyzer() {
         {!currentResume && (
           <div className="card bg-yellow-50 border-yellow-200">
             <p className="text-yellow-800">
-              Please upload your resume in the <strong>Documents</strong> page first.
+              ⚠️ Please upload your resume in the <strong>Documents</strong> page first.
+            </p>
+          </div>
+        )}
+
+        {currentResume && !currentCoverLetter && (
+          <div className="card bg-blue-50 border-blue-200">
+            <p className="text-blue-800">
+              💡 Tip: Upload a cover letter in the <strong>Documents</strong> page to optimize it for this job too.
             </p>
           </div>
         )}
