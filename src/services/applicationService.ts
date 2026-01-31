@@ -8,8 +8,9 @@ export const applicationService = {
   },
 
   async getApplications(search?: string, status?: string): Promise<JobApplication[]> {
-    const response = await api.getApplications(search, status)
-    return (response || []).map(this.mapApplication)
+    const response = await api.getApplications(search, status) as any
+    const applications = Array.isArray(response) ? response : []
+    return applications.map(this.mapApplication)
   },
 
   async getApplication(id: string): Promise<JobApplication> {

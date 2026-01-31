@@ -9,7 +9,7 @@ import type {
 
 // Mock service functions - will be replaced with actual API calls later
 
-export const mockExtractJobData = async (urlOrText: string): Promise<JobDescription['extractedData']> => {
+export const mockExtractJobData = async (_urlOrText: string): Promise<JobDescription['extractedData']> => {
   // Simulate API call
   await new Promise(resolve => setTimeout(resolve, 1000));
   
@@ -26,7 +26,7 @@ export const mockExtractJobData = async (urlOrText: string): Promise<JobDescript
   };
 };
 
-export const mockParseResume = async (file: File): Promise<ResumeSection> => {
+export const mockParseResume = async (_file: File): Promise<ResumeSection> => {
   await new Promise(resolve => setTimeout(resolve, 1500));
   
   return {
@@ -57,8 +57,8 @@ export const mockParseResume = async (file: File): Promise<ResumeSection> => {
 };
 
 export const mockCalculateATSScore = async (
-  resume: Resume,
-  jobDescription: JobDescription
+  _resume: Resume,
+  _jobDescription: JobDescription
 ): Promise<ATSScore> => {
   await new Promise(resolve => setTimeout(resolve, 800));
   
@@ -81,8 +81,8 @@ export const mockCalculateATSScore = async (
 };
 
 export const mockOptimizeResume = async (
-  resume: Resume,
-  jobDescription: JobDescription
+  _resume: Resume,
+  _jobDescription: JobDescription
 ): Promise<{ optimized: ResumeSection; changes: OptimizationChange[] }> => {
   await new Promise(resolve => setTimeout(resolve, 2000));
   
@@ -98,10 +98,10 @@ export const mockOptimizeResume = async (
   ];
   
   const optimized: ResumeSection = {
-    ...resume.optimizedContent,
-    experience: resume.optimizedContent.experience.map(exp => ({
+    ..._resume.optimizedContent,
+    experience: _resume.optimizedContent.experience.map((exp: any) => ({
       ...exp,
-      bullets: exp.bullets.map(bullet => {
+      bullets: exp.bullets.map((bullet: any) => {
         if (bullet === 'Developed backend APIs') {
           return 'Developed scalable Spring Boot REST APIs with proper error handling';
         }

@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { ArrowLeft, Calendar, Link as LinkIcon, FileText, Edit2 } from 'lucide-react'
+import { ArrowLeft, Calendar, Link as LinkIcon } from 'lucide-react'
 import { useStore } from '@/store/useStore'
 import { useState } from 'react'
 import type { ApplicationStatus } from '@/types'
@@ -9,7 +9,6 @@ export default function ApplicationDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { applications, updateApplication } = useStore()
-  const [isEditing, setIsEditing] = useState(false)
   const [newNote, setNewNote] = useState('')
 
   const application = applications.find((app) => app.id === id)

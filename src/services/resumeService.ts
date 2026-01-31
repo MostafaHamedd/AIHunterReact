@@ -2,10 +2,10 @@ import { api } from './api'
 import type { Resume, ResumeSection } from '@/types'
 
 export const resumeService = {
-  async uploadResume(file: File): Promise<Resume> {
+  async uploadResume(_file: File): Promise<Resume> {
     try {
-      console.log('Calling API to upload resume:', file.name)
-      const response = await api.uploadResume(file)
+      console.log('Calling API to upload resume:', _file.name)
+      const response = await api.uploadResume(_file) as any
       console.log('API Response:', response)
       
       if (!response || !response.originalContent) {
@@ -13,14 +13,14 @@ export const resumeService = {
       }
       
       const mappedResume = {
-        id: response.id.toString(),
-        name: response.name,
-        originalContent: this.mapResumeContent(response.originalContent),
-        optimizedContent: response.optimizedContent 
+        id: response?.id?.toString() || '',
+        name: response?.name || '',
+        originalContent: this.mapResumeContent(response?.originalContent),
+        optimizedContent: response?.optimizedContent 
           ? this.mapResumeContent(response.optimizedContent)
-          : this.mapResumeContent(response.originalContent),
-        version: response.version,
-        createdAt: new Date(response.createdAt),
+          : this.mapResumeContent(response?.originalContent),
+        version: response?.version || '1.0',
+        createdAt: response?.createdAt ? new Date(response.createdAt) : new Date(),
       }
       
       console.log('Mapped Resume:', mappedResume)
@@ -32,15 +32,15 @@ export const resumeService = {
   },
 
   async optimizeResume(resumeId: string, jobDescriptionId: string): Promise<Resume> {
-    const response = await api.optimizeResume(resumeId, jobDescriptionId)
+    const response = await api.optimizeResume(resumeId, jobDescriptionId) as any
     
     return {
-      id: response.id.toString(),
-      name: response.name,
-      originalContent: this.mapResumeContent(response.originalContent),
-      optimizedContent: this.mapResumeContent(response.optimizedContent),
-      version: response.version,
-      createdAt: new Date(response.createdAt),
+      id: response?.id?.toString() || '',
+      name: response?.name || '',
+      originalContent: this.mapResumeContent(response?.originalContent),
+      optimizedContent: this.mapResumeContent(response?.optimizedContent),
+      version: response?.version || '1.0',
+      createdAt: response?.createdAt ? new Date(response.createdAt) : new Date(),
     }
   },
 

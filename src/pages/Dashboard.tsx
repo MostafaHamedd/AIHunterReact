@@ -5,8 +5,7 @@ import {
   Briefcase, 
   TrendingUp,
   CheckCircle2,
-  Clock,
-  XCircle
+  Clock
 } from 'lucide-react'
 import { useStore } from '@/store/useStore'
 
