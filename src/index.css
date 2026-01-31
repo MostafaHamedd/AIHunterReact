@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-black;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-700 hover:via-purple-600 hover:to-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:scale-105;
+  }
+  
+  .btn-gradient {
+    @apply bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 hover:from-purple-700 hover:via-purple-600 hover:to-pink-600 text-white font-medium px-4 py-2 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:scale-105;
+  }
+  
+  .btn-gradient-purple {
+    @apply bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-700 hover:via-purple-600 hover:to-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:scale-105;
+  }
+  
+  .btn-gradient-green {
+    @apply bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 hover:from-green-600 hover:via-emerald-600 hover:to-teal-600 text-white font-medium px-4 py-2 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-black font-medium px-4 py-2 rounded-lg transition-colors;
+  }
+}
+
