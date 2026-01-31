@@ -128,5 +128,14 @@ export const api = {
       body: JSON.stringify({ note }),
     })
   },
+
+  // Cover Letters
+  async uploadCoverLetter(file: File) {
+    return fetchApiWithFile('/cover-letters/upload', file)
+  },
+
+  async getCoverLetter(id: string) {
+    return fetchApi(`/cover-letters/${id}`)
+  },
 }
 
