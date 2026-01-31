@@ -4,7 +4,8 @@ import {
   FileSearch, 
   FileEdit, 
   Briefcase,
-  Sparkles
+  Sparkles,
+  FileText
 } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
@@ -14,6 +15,7 @@ interface LayoutProps {
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
+  { name: 'Documents', href: '/documents', icon: FileText },
   { name: 'Analyze Job', href: '/analyze', icon: FileSearch },
   { name: 'Resume Editor', href: '/editor', icon: FileEdit },
   { name: 'Applications', href: '/applications', icon: Briefcase },

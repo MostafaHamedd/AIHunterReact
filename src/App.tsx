@@ -5,6 +5,7 @@ import JobAnalyzer from './pages/JobAnalyzer'
 import ResumeEditor from './pages/ResumeEditor'
 import Applications from './pages/Applications'
 import ApplicationDetail from './pages/ApplicationDetail'
+import Documents from './pages/Documents'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/documents" element={<Documents />} />
           <Route path="/analyze" element={<JobAnalyzer />} />
           <Route path="/editor" element={<ResumeEditor />} />
           <Route path="/applications" element={<Applications />} />
